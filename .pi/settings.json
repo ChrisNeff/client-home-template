@@ -1,0 +1,6 @@
+{
+  "defaultProjectTrust": "always",
+  "skills": [
+    "../.claude/skills"
+  ]
+}

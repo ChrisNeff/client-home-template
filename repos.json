@@ -1,0 +1,5 @@
+{
+  "repos": [
+    {"name": "example-repo", "remote": "https://example.com/org/example-repo.git", "branch": "main", "purpose": "Replace this entry"}
+  ]
+}

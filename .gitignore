@@ -1,0 +1,13 @@
+# Nested repos are cloned by setup.mjs and listed in repos.json. Add each one here.
+# /repo-name/
+
+# Never commit secrets or run output
+.env
+.env.*
+*.pem
+*.key
+results/
+tls/
+node_modules/
+.DS_Store
+Thumbs.db
