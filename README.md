@@ -17,3 +17,10 @@ Then open an agent session in this folder. See `AGENTS.md` for layout, rules and
 ## Adding a repo
 
 Use the `__PREFIX__-new-repo` skill, or: add an entry to `repos.json`, add `/<name>/` to `.gitignore`, run `node setup.mjs`.
+
+## Third-party skills
+
+None yet. Record each vendored skill here (see the rule in `AGENTS.md`).
+
+| Skill | Source | Commit | Local changes |
+|-------|--------|--------|---------------|

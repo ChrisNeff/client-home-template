@@ -3,6 +3,10 @@ name: __PREFIX__-wiki-query
 description: Answer a question about __NAME__ from the team wiki, citing pages, and offer to file valuable answers back as new wiki pages
 ---
 
+**Usage:** `/__PREFIX__-wiki-query <question>` (Claude Code, Copilot) · `/skill:__PREFIX__-wiki-query <question>` (Pi)
+
+The question is the text after the command.
+
 # Wiki query
 
 1. Read `wiki/index.md` first. Pick the relevant pages from it, then read them. Follow relative links where needed.

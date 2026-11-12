@@ -1,7 +1,10 @@
 ---
 name: __PREFIX__-repo-sync
 description: Clone missing and fast-forward existing nested repos from repos.json, then report each repo's branch, ahead/behind and dirty state
+disable-model-invocation: true
 ---
+
+**Usage:** `/__PREFIX__-repo-sync` (Claude Code, Copilot) · `/skill:__PREFIX__-repo-sync` (Pi)
 
 # Repo sync
 

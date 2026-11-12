@@ -1,7 +1,9 @@
 ---
 name: __PREFIX__-wiki-lint
-description: Health-check the __NAME__ team wiki — vault leakage, broken links, orphans, missing index entries, stale or contradictory pages (report first, fix only on approval)
+description: Health-check the __NAME__ team wiki - vault leakage, broken links, orphans, missing index entries, stale or contradictory pages (report first, fix only on approval)
 ---
+
+**Usage:** `/__PREFIX__-wiki-lint` (Claude Code, Copilot) · `/skill:__PREFIX__-wiki-lint` (Pi)
 
 # Wiki lint
 

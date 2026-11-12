@@ -1,7 +1,12 @@
 ---
 name: __PREFIX__-wiki-ingest
-description: Ingest a source (file in raw/, a pasted document, or a staged note) into the __NAME__ team wiki — summarize it, create or update entity/concept/decision pages, refresh index.md and log.md
+description: Ingest a source (file in raw/, a pasted document, or a staged note) into the __NAME__ team wiki - summarize it, create or update entity/concept/decision pages, refresh index.md and log.md
+disable-model-invocation: true
 ---
+
+**Usage:** `/__PREFIX__-wiki-ingest <source>` (Claude Code, Copilot) · `/skill:__PREFIX__-wiki-ingest <source>` (Pi)
+
+The source is the text after the command (a path in `raw/` or pasted content).
 
 # Wiki ingest
 

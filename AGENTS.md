@@ -1,4 +1,4 @@
-# __NAME__ — Home Repo
+# __NAME__ - Home Repo
 
 __PURPOSE__
 
@@ -22,12 +22,27 @@ This is the **home repo** for __NAME__: the one place that holds the shared agen
 
 ## Rules
 
+- **Writing style:** American English spelling (color, organize, behavior). No em-dashes; use a hyphen with spaces (" - "). En-dashes for number ranges are fine.
 - **Skill names** are `__PREFIX__-<name>`. Folder name and `name:` field must match. No tool-specific skill copies.
+- **Writing a skill that works in every tool:** frontmatter is `name` (= folder name) and `description` only, plus `disable-model-invocation: true` for skills with side effects so they run only when invoked. Refer to input as "the text after the command", not `$ARGUMENTS`. Describe actions generically ("fetch the URL", "ask the user"), not by naming one tool's functions. Say in the description if an MCP server is required. Invoke with `/__PREFIX__-<name>` in Claude Code and Copilot, `/skill:__PREFIX__-<name>` in Pi.
+- **Thin skills:** when a workflow is long, keep the skill as a pointer to one backing file that is the single source of truth. Edit the source and the skill follows.
+- **Third-party skills:** copy them into `.claude/skills/<upstream-name>/` (no prefix, no submodule, no user-level install) and record the source and commit in a table in the README. Read every file, scripts included, before the first copy and again when an update touches scripts. Install counts and stars are not a quality or security signal.
 - **Nested repos:** work in them as normal. Each repo gets its own commits and pull requests. Never commit a nested repo's contents here.
 - **Secrets and client data:** never commit credentials, tokens, `.env*`, TLS material, test-run output or patient/personal data, here or in `raw/` or `wiki/`. Mind each nested repo's own ignore rules.
 - **Git:** show the staged diff and commit message before committing; confirm before pushing; never force-push main; no AI co-author lines in commits.
+- **Default branch** is `main`, never `master`.
 - **Minimum changes:** solve what was asked. Read a file fully before editing it.
-- **Ask first:** new top-level folders, changing conventions in this file, adding repos to the manifest.
+- **Planning:** make a plan and get the user's agreement before any change that touches 3 or more files or involves a structural decision. Define success criteria first.
+- **Ask first:** new top-level folders, changing conventions in this file, changing `.claude/settings.json` permissions, adding repos to the manifest.
+- **`raw/` is not `_raw/`:** this repo's `raw/` is durable, committed and team-safe. A personal gitignored `_raw/` staging inbox (if the owner has one) is unrelated; never copy from it here without the owner's review.
+
+## Verification before done
+
+- `updated:` frontmatter is set to today on every edited wiki page.
+- Every relative link resolves, and `index.md` lists every page.
+- `node tools/check-wiki.mjs` passes.
+- New files are in the right folder; skill folder names match their `name:` fields.
+- Nothing secret or client-sensitive was added.
 
 ## The wiki (LLM Wiki pattern)
 

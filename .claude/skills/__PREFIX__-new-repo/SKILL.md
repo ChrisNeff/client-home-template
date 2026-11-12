@@ -1,7 +1,12 @@
 ---
 name: __PREFIX__-new-repo
-description: Register a repo in the __NAME__ home repo — add it to repos.json and .gitignore, clone it, and note it in the wiki
+description: Register a repo in the __NAME__ home repo - add it to repos.json and .gitignore, clone it, and note it in the wiki
+disable-model-invocation: true
 ---
+
+**Usage:** `/__PREFIX__-new-repo <name>` (Claude Code, Copilot) · `/skill:__PREFIX__-new-repo <name>` (Pi)
+
+The repo name, if given, is the text after the command; ask for anything missing.
 
 # New repo
 

@@ -47,6 +47,6 @@ walk('.');
 
 try { execFileSync('git', ['remote', 'remove', 'origin'], { stdio: 'ignore' }); } catch {}
 rmSync('init.mjs');
-console.log(`Initialised '${name}' with prefix '${prefix}'. Next: edit repos.json, set a remote, review AGENTS.md.`);
+console.log(`Initialized '${name}' with prefix '${prefix}'. Next: edit repos.json, set a remote, review AGENTS.md.`);
 
 function fail(m) { console.error(m); process.exit(1); }
