@@ -2,7 +2,7 @@
 // One-time setup for a new instance.
 // Usage: node init.mjs <prefix> "<Display Name>" "<one-line purpose>"
 // Prefix: lowercase letters/digits/hyphens (client name, SoW code, anything).
-import { readdirSync, readFileSync, writeFileSync, renameSync, rmSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, renameSync, rmSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createInterface } from 'node:readline/promises';
@@ -27,6 +27,15 @@ writeFileSync('home.config.json', JSON.stringify({ prefix, name, purpose, vaultP
 const skills = join('.claude', 'skills');
 for (const d of readdirSync(skills)) {
   if (d.startsWith('__PREFIX__-')) renameSync(join(skills, d), join(skills, d.replace('__PREFIX__', prefix)));
+}
+
+// Remove the template-only usage note from the README
+if (existsSync('README.md')) {
+  const rd = readFileSync('README.md', 'utf8');
+  const s0 = rd.indexOf('<!-- TEMPLATE-ONLY-START -->');
+  const endTag = '<!-- TEMPLATE-ONLY-END -->';
+  const e0 = rd.indexOf(endTag);
+  if (s0 >= 0 && e0 > s0) writeFileSync('README.md', rd.slice(0, s0) + rd.slice(e0 + endTag.length).trimStart());
 }
 
 const today = new Date().toISOString().slice(0, 10);

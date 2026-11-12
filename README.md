@@ -1,3 +1,15 @@
+<!-- TEMPLATE-ONLY-START -->
+> **This is a template.** Create your own repo from it ("Use this template" on GitHub, or clone it and remove the remote), then in your copy run:
+>
+> ```bash
+> node init.mjs <prefix> "<Display Name>" "<one-line purpose>"
+> ```
+>
+> The prefix names your skills (`<prefix>-wiki-ingest` and so on); use a client name, an SoW code, anything. `init.mjs` fills in the placeholders, renames the skills, writes `home.config.json`, then deletes itself and this note. Next: list your repos in `repos.json`, run `node setup.mjs`, review `AGENTS.md`, and add a remote. Requires Node 18+.
+>
+> Works with Claude Code (`claude`), Pi (`pi`) and GitHub Copilot CLI (`copilot`); `AGENTS.md` is the single source of truth.
+<!-- TEMPLATE-ONLY-END -->
+
 # __NAME__ home repo
 
 __PURPOSE__

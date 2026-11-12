@@ -19,6 +19,8 @@ const only = onlyIdx >= 0 ? args[onlyIdx + 1] : null;
 if (onlyIdx >= 0 && !only) { console.error('--only needs a repo name'); process.exit(1); }
 if (only && !repos.some((r) => r.name === only)) { console.error(`No repo named '${only}' in repos.json`); process.exit(1); }
 
+if (repos.length === 0) console.log('No repos listed in repos.json yet. Add entries (name, remote, branch, purpose), then run this again.');
+
 for (const { name, remote, branch, optional } of repos) {
   if (!name || !remote) continue;
   if (only && name !== only) continue;

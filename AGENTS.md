@@ -37,6 +37,7 @@ This is the **home repo** for __NAME__: the one place that holds the shared agen
 - **Nested repos:** work in them as normal. Each repo gets its own commits and pull requests. Never commit a nested repo's contents here.
 - **Secrets and client data:** never commit credentials, tokens, `.env*`, TLS material, test-run output or patient/personal data, here or in `raw/` or `wiki/`. Mind each nested repo's own ignore rules.
 - **Git:** show the staged diff and commit message before committing; confirm before pushing; never force-push main; no AI co-author lines in commits.
+- **Git identity:** before the first commit in this repo, check that `git config user.email` is the identity you intend for this client. If it is not, set it locally in this repo (`git config --local user.email ...`) and never change the global git config. Do the same in each nested repo.
 - **Conventional Commits:** every commit message is `type(scope)!: description`. Types: `feat`, `fix`, `docs`, `refactor`, `test`, `build`, `ci`, `perf`, `style`, `chore`. The scope is optional (`docs(wiki): add payments entity`), `!` marks a breaking change, the description is lowercase, imperative and at most about 72 characters, and any body explains why. Wiki-only changes use `docs(wiki):`; skill or tooling changes use `feat`, `fix` or `chore`. Nested repos follow their own `AGENTS.md` if it says otherwise.
 - **Default branch** is `main`, never `master`.
 - **Minimum changes:** solve what was asked. Read a file fully before editing it.
