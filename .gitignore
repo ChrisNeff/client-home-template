@@ -1,7 +1,16 @@
-# Nested repos are cloned by setup.mjs and listed in repos.json. Add each one here.
-# /repo-name/
+# Allowlist: every top-level folder is ignored unless listed below. Any repo cloned into
+# this folder (see repos.json) is therefore ignored automatically, with no per-repo edit.
+# To add a new top-level folder that SHOULD be tracked, add a "!/<folder>/" line here.
+/*/
+!/.claude/
+!/.github/
+!/.pi/
+!/raw/
+!/wiki/
+!/tools/
 
-# Never commit secrets or run output
+# Never commit secrets or run output, anywhere
+.claude/settings.local.json
 .env
 .env.*
 *.pem

@@ -9,14 +9,14 @@ Shared agent setup, team wiki and nested repos for this client. Works with Claud
 Requires Node 18+ (all scripts are dependency-free `.mjs`, so they run the same on Windows, macOS and Linux).
 
 ```bash
-node setup.mjs      # clone/update every repo listed in repos.json
+node setup.mjs      # clone/update every repo in repos.json (optional ones are skipped; add --include-optional)
 ```
 
 Then open an agent session in this folder. See `AGENTS.md` for layout, rules and the wiki.
 
 ## Adding a repo
 
-Use the `__PREFIX__-new-repo` skill, or: add an entry to `repos.json`, add `/<name>/` to `.gitignore`, run `node setup.mjs`.
+Use the `__PREFIX__-new-repo` skill, or: add an entry to `repos.json` and run `node setup.mjs`. Nested repos are ignored automatically (see `.gitignore`).
 
 ## Third-party skills
 
@@ -24,3 +24,19 @@ None yet. Record each vendored skill here (see the rule in `AGENTS.md`).
 
 | Skill | Source | Commit | Local changes |
 |-------|--------|--------|---------------|
+
+## Running it from a terminal
+
+Open a session from this folder with any of the three CLIs. Each reads `AGENTS.md` (Claude Code through the one-line `CLAUDE.md`) and the skills in `.claude/skills/`.
+
+| CLI | Command | Invoke a skill | First run |
+|-----|---------|----------------|-----------|
+| Claude Code | `claude` | `/<prefix>-<name>` | Accept the workspace trust dialog once, or `.claude/settings.json` permissions are ignored |
+| Pi | `pi` | `/skill:<prefix>-<name>` | Accept project trust when asked, so `.pi/settings.json` loads the skills |
+| GitHub Copilot CLI | `copilot` | `/<prefix>-<name>` | Pick a model your account has with `/model` or `--model` |
+
+Notes:
+- Skills with side effects (`wiki-ingest`, `repo-sync`, `new-repo`) are hidden from the model and run only when you invoke them by name.
+- Memory loads by instruction ("read `.claude/memory/MEMORY.md`"), not by `@` import, so it works in all three. Claude Code and Copilot read it at the start of a session; with Pi, ask for it if it does not.
+- Git Bash on Windows rewrites a leading `/` in non-interactive commands (`claude -p "/skill"`). Set `MSYS_NO_PATHCONV=1` there. Typing a slash command interactively is not affected.
+- Permissions in `.claude/settings.json` apply to Claude Code only. Pi and Copilot use their own approval prompts.

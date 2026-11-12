@@ -10,11 +10,10 @@ The repo name, if given, is the text after the command; ask for anything missing
 
 # New repo
 
-Ask for: name, remote URL, default branch, one-line purpose. Confirm before changing files.
+Ask for: name, remote URL, default branch, one-line purpose, and whether the repo is optional (not needed on every machine). Confirm before changing files.
 
-1. Add an entry to `repos.json` (`name`, `remote`, `branch`, `purpose`).
-2. Add `/<name>/` to `.gitignore`.
-3. Run `node setup.mjs` to clone it.
-4. Read the new repo's `AGENTS.md`/`README.md`. If it has none, tell the user (do not create one unasked).
-5. Offer to ingest the repo's purpose and structure as an entity page via `__PREFIX__-wiki-ingest`.
-6. Show the diff and wait for approval before committing.
+1. Add an entry to `repos.json` (`name`, `remote`, `branch`, `purpose`, and `"optional": true` if applicable).
+2. Run `node setup.mjs` to clone it. Nested repos are ignored automatically by the allowlist `.gitignore`; confirm with `git check-ignore <name>`.
+3. Read the new repo's `AGENTS.md`/`README.md`. If it has none, tell the user (do not create one unasked).
+4. Offer to ingest the repo's purpose and structure as an entity page via `__PREFIX__-wiki-ingest`.
+5. Show the diff and wait for approval before committing.
