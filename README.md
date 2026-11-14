@@ -30,6 +30,14 @@ Then open an agent session in this folder. See `AGENTS.md` for layout, rules and
 
 Use the `__PREFIX__-new-repo` skill, or: add an entry to `repos.json` and run `node setup.mjs`. Nested repos are ignored automatically (see `.gitignore`).
 
+## Plugins
+
+Declared in `.claude/settings.json` and used by Claude Code and Copilot. Pi doesn't load them.
+
+| Plugin | Marketplace | Default | Turn it on when |
+|--------|-------------|---------|-----------------|
+| `dotnet-skills` | [Aaronontheweb/dotnet-skills](https://github.com/Aaronontheweb/dotnet-skills) | off | the client's repos are .NET (set it to `true` in `enabledPlugins`) |
+
 ## Third-party skills
 
 None yet. Record each vendored skill here (see the rule in `AGENTS.md`).

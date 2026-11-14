@@ -7,5 +7,16 @@
       "Bash(git fetch *)",
       "Bash(node tools/check-wiki.mjs*)"
     ]
+  },
+  "extraKnownMarketplaces": {
+    "dotnet-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Aaronontheweb/dotnet-skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "dotnet-skills@dotnet-skills": false
   }
 }
