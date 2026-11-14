@@ -14,9 +14,17 @@
         "source": "github",
         "repo": "Aaronontheweb/dotnet-skills"
       }
+    },
+    "dotnet-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "dotnet/skills"
+      }
     }
   },
   "enabledPlugins": {
-    "dotnet-skills@dotnet-skills": false
+    "dotnet-skills@dotnet-skills": false,
+    "dotnet@dotnet-agent-skills": false,
+    "dotnet-test@dotnet-agent-skills": false
   }
 }

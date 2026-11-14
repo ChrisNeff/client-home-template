@@ -37,6 +37,10 @@ Declared in `.claude/settings.json` and used by Claude Code and Copilot. Pi does
 | Plugin | Marketplace | Default | Turn it on when |
 |--------|-------------|---------|-----------------|
 | `dotnet-skills` | [Aaronontheweb/dotnet-skills](https://github.com/Aaronontheweb/dotnet-skills) | off | the client's repos are .NET (set it to `true` in `enabledPlugins`) |
+| `dotnet` | [dotnet/skills](https://github.com/dotnet/skills) (`dotnet-agent-skills`) | off | the client's repos are .NET. Adds C# skills and a Roslyn language server, which needs the .NET 10 SDK (`dnx`) |
+| `dotnet-test` | [dotnet/skills](https://github.com/dotnet/skills) (`dotnet-agent-skills`) | off | the client's repos are .NET (test running, coverage, CRAP score, test quality) |
+
+dotnet/skills ships 16 plugins in all. Add other ones by stack, for example `dotnet-aspnetcore`, `dotnet-data` (EF Core), `dotnet-blazor`, `dotnet-nuget` or `dotnet-upgrade`.
 
 ## Third-party skills
 
