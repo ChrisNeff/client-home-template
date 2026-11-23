@@ -8,6 +8,7 @@
 !/raw/
 !/wiki/
 !/tools/
+!/examples/
 
 # Never commit secrets or run output, anywhere
 .claude/settings.local.json

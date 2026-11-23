@@ -60,7 +60,7 @@ Open a session from this folder with any of the three CLIs. Each reads `AGENTS.m
 | GitHub Copilot CLI | `copilot` | `/<prefix>-<name>` | Pick a model your account has with `/model` or `--model` |
 
 Notes:
-- Skills with side effects (`wiki-ingest`, `repo-sync`, `new-repo`) are hidden from the model and run only when you invoke them by name.
+- Skills with side effects (`wiki-ingest`, `repo-sync`, `new-repo`, `delete-comments`) are hidden from the model and run only when you invoke them by name.
 - Memory loads by instruction ("read `.claude/memory/MEMORY.md`"), not by `@` import, so it works in all three. Claude Code and Copilot read it at the start of a session; with Pi, ask for it if it does not.
 - Git Bash on Windows rewrites a leading `/` in non-interactive commands (`claude -p "/skill"`). Set `MSYS_NO_PATHCONV=1` there. Typing a slash command interactively is not affected.
 - Permissions in `.claude/settings.json` apply to Claude Code only. Pi and Copilot use their own approval prompts.

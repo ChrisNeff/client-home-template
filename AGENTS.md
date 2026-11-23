@@ -14,6 +14,7 @@ This is the **home repo** for __NAME__: the one place that holds the shared agen
 | `<repo>/` | A nested clone, ignored by this repo's allowlist `.gitignore`. Read its own `AGENTS.md` before working in it |
 | `raw/` | Immutable, team-safe source material the wiki is built from. Agents read, never edit |
 | `wiki/` | The team wiki, owned and maintained by the agent (see below) |
+| `examples/` | Sample wiki pages (for example a .NET stack and principles set) to copy into `wiki/` and edit. Not part of the wiki: never indexed, linted or cited |
 | `tools/` | Shared scripts (`check-wiki.mjs`) |
 | `.claude/skills/` | Shared skills. The only skills folder, for every tool |
 | `.claude/memory/` | Team-shareable memory. Index in `MEMORY.md` |
@@ -64,11 +65,13 @@ wiki/
   log.md        append-only record: ingest / query / lint entries, newest last
   entities/     concrete things: systems, repos, environments, roles, vendors
   concepts/     ideas and patterns: standards, conventions, how things work
-  decisions/    what was decided, why, when, by whom
+  decisions/    what was decided, why, when, by whom, and the alternatives considered (see Decision pages)
   sources/      one summary page per raw source
 ```
 
 **Page format:** frontmatter with `title`, `type` (entity|concept|decision|source), `sources` (list of `raw/` paths or source pages), `updated` (YYYY-MM-DD). One topic per page. Plain markdown links with relative paths only, e.g. `[Payments API](../entities/payments-api.md)`.
+
+**Decision pages** (`wiki/decisions/`): besides what was decided, why, when and by whom, every decision page has an **Alternatives considered** section listing each option that was weighed and why it was not chosen. When someone later proposes a "great idea" that revisits the decision, this shows whether it was already considered and why it lost the first time. Record rejected options even when they were dismissed quickly.
 
 **Hard rules**
 1. **No vault artifacts, ever.** No `[[wikilinks]]`, `![[embeds]]`, `obsidian://` links, backlink or "linked from" sections, Dataview blocks, or paths into any personal knowledge vault. `node tools/check-wiki.mjs` must pass (add your own vault folder names to `vaultPatterns` in `home.config.json` so it catches them too) before every commit touching `raw/` or `wiki/`.
@@ -77,6 +80,6 @@ wiki/
 4. **Keep `index.md` and `log.md` current** in the same change as any page edit.
 5. **Raw is immutable.** Never edit `raw/`. Corrections go in the wiki with a note.
 
-**Operations (skills):** `__PREFIX__-capture` (save a URL or text into `raw/`), `__PREFIX__-wiki-ingest` (add a source), `__PREFIX__-wiki-query` (answer from the wiki, file good answers back), `__PREFIX__-wiki-lint` (find contradictions, orphans, stale pages, vault leakage). Other skills: `__PREFIX__-repo-sync`, `__PREFIX__-new-repo`.
+**Operations (skills):** `__PREFIX__-capture` (save a URL or text into `raw/`), `__PREFIX__-wiki-ingest` (add a source), `__PREFIX__-wiki-query` (answer from the wiki, file good answers back), `__PREFIX__-wiki-lint` (find contradictions, orphans, stale pages, vault leakage). Other skills: `__PREFIX__-repo-sync`, `__PREFIX__-new-repo`, `__PREFIX__-delete-comments` (audit code comments in a nested repo).
 
 **Wiki content from a private vault:** the owner may stage vault notes as raw sources. The ingest skill rewrites them as wiki pages (it never copies them), so no vault structure carries over, and the owner approves each page.
